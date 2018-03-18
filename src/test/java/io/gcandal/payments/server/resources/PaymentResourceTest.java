@@ -36,7 +36,7 @@ public class PaymentResourceTest {
 
     @Before
     public void setup() {
-        Mockito.when(dao.get(Mockito.eq(PAYMENT.getId().toString())))
+        Mockito.when(dao.get(Mockito.eq(PAYMENT.getId())))
                 .thenReturn(PAYMENT);
     }
 
@@ -47,10 +47,10 @@ public class PaymentResourceTest {
 
     @Test
     public void testGet() {
-        final String paymentId = PAYMENT.getId().toString();
+        final UUID paymentId = PAYMENT.getId();
         final String getUrl = String.format("payments/%s", paymentId);
 
-        assertThat(RESOURCES.target(getUrl).request().get(Payment.class))
+        assertThat(MockAuthentication.requestWithAuth(RESOURCES.target(getUrl).request()).get(Payment.class))
                 .isEqualTo(PAYMENT);
 
         Mockito.verify(dao).get(paymentId);

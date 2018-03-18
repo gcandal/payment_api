@@ -9,7 +9,7 @@ import javax.persistence.Converter;
 import java.io.IOException;
 
 @Converter(autoApply = true)
-public class AttributesToJsonConverter implements AttributeConverter<Attributes, String> {
+public class toJsonConverter implements AttributeConverter<Attributes, String> {
 
     private final static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 

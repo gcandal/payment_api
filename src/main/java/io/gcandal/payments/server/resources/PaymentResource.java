@@ -1,5 +1,6 @@
 package io.gcandal.payments.server.resources;
 
+import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.gcandal.payments.server.core.Payment;
 import io.gcandal.payments.server.db.PaymentDAO;
@@ -13,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.security.Principal;
 import java.util.UUID;
 
 @Path(PaymentResource.PAYMENT_URL)
@@ -28,20 +30,23 @@ public class PaymentResource implements SmoothUpdate<Payment, PaymentDAO> {
 
     @GET
     @UnitOfWork
-    public Payment get(@PathParam("id") final UUID id) {
+    public Payment get(@Auth final Principal principal,
+                       @PathParam("id") final UUID id) {
         return this.paymentDAO.get(id);
     }
 
     @PUT
     @UnitOfWork
-    public Payment update(@PathParam("id") final UUID id,
+    public Payment update(@Auth final Principal principal,
+                          @PathParam("id") final UUID id,
                           @Valid final Payment payment) {
         return update(id, payment, this.paymentDAO);
     }
 
     @DELETE
     @UnitOfWork
-    public Payment delete(@PathParam("id") final UUID id) {
+    public Payment delete(@Auth final Principal principal,
+                          @PathParam("id") final UUID id) {
         return this.paymentDAO.delete(id);
     }
 }

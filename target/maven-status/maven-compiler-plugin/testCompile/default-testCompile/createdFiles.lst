@@ -1,3 +1,5 @@
-io/gcandal/payments/server/core/PaymentTest.class
-io/gcandal/payments/server/resources/PaymentResourceTest.class
-io/gcandal/payments/server/resources/PaymentsResourceTest.class
+io\gcandal\payments\server\resources\PaymentsResourceTest$1.class
+io\gcandal\payments\server\resources\PaymentsResourceTest.class
+io\gcandal\payments\server\utils\MockAuthentication.class
+io\gcandal\payments\server\core\PaymentTest.class
+io\gcandal\payments\server\resources\PaymentResourceTest.class

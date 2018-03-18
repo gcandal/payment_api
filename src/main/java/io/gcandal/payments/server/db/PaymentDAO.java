@@ -1,6 +1,7 @@
 package io.gcandal.payments.server.db;
 
 import io.gcandal.payments.server.core.Payment;
+import io.gcandal.payments.server.resources.SmoothDelete;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -9,7 +10,7 @@ import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.util.List;
 
-public class PaymentDAO extends Deletable<Payment> implements Updatable<Payment> {
+public class PaymentDAO extends SmoothDelete<Payment> implements Updatable<Payment> {
 
     public PaymentDAO(final SessionFactory sessionFactory) {
         super(sessionFactory);

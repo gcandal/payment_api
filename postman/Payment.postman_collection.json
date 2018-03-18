@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "696d14d9-1413-40ed-a123-d4bb6ca32c60",
 		"name": "Payment",
-		"_postman_id": "7b688b98-3803-4cef-ab14-c56e78af3871",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -13,22 +12,37 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUyMTMwNTcyOH0.cu3F7Gmb0lJ83nFeyoTeiVxnmplvGV7Zz5yhJpaNVW8 "
+						"value": "Bearer {{token}}"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{URL}}payments",
 					"host": [
 						"{{URL}}payments"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "624ec63a-7af3-4670-9efe-d1a0af70e821",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -49,8 +63,7 @@
 					"path": [
 						"login"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -61,10 +74,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUyMTMwMzEwNX0.CS_mvDH8t5IT91P-U2vONj7CFCozj6QtgptAHcfG214"
+						"value": "Bearer {{token}}"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{URL}}auth/check-token",
 					"host": [
@@ -73,8 +89,7 @@
 					"path": [
 						"check-token"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -86,6 +101,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
 					}
 				],
 				"body": {
@@ -97,8 +116,7 @@
 					"host": [
 						"{{URL}}payments"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -106,8 +124,16 @@
 			"name": "Payment",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{URL}}payments/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec43",
 					"host": [
@@ -116,8 +142,7 @@
 					"path": [
 						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec43"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -129,6 +154,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
 					}
 				],
 				"body": {
@@ -143,8 +172,7 @@
 					"path": [
 						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec49"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -152,8 +180,16 @@
 			"name": "Payment",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{URL}}payments/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec4",
 					"host": [
@@ -162,8 +198,7 @@
 					"path": [
 						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec4"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}

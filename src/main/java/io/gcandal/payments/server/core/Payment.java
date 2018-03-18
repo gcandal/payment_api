@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
-import io.gcandal.payments.server.db.converters.AttributesToJsonConverter;
+import io.gcandal.payments.server.db.converters.toJsonConverter;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Type;
 
@@ -38,7 +38,7 @@ public class Payment implements Identifiable {
     private UUID organisationId;
 
     @Valid
-    @Convert(converter = AttributesToJsonConverter.class)
+    @Convert(converter = toJsonConverter.class)
     private Attributes attributes;
 
     public Payment() { }

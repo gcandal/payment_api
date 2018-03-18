@@ -2,6 +2,7 @@ package io.gcandal.payments.server.resources;
 
 import io.gcandal.payments.server.core.Identifiable;
 import io.gcandal.payments.server.db.Updatable;
+import org.hibernate.StaleStateException;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -18,6 +19,14 @@ public interface SmoothUpdate<O extends Identifiable, D extends Updatable<O>> {
             throw new WebApplicationException(errorMessage, Response.Status.BAD_REQUEST);
         }
         object.setId(id);
+
+        if (dao.get(id) == null) {
+            final String errorMessage = String.format(
+                    "The content ID '%s' references an object which doesn't exist.",
+                    object.getId()
+            );
+            throw new WebApplicationException(errorMessage, Response.Status.NOT_FOUND);
+        }
 
         return dao.update(object);
     }
