@@ -1,0 +1,171 @@
+{
+	"info": {
+		"name": "Payment",
+		"_postman_id": "7b688b98-3803-4cef-ab14-c56e78af3871",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Payments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUyMTMwNTcyOH0.cu3F7Gmb0lJ83nFeyoTeiVxnmplvGV7Zz5yhJpaNVW8 "
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}payments",
+					"host": [
+						"{{URL}}payments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"admin\",\n\t\"password\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}auth/login",
+					"host": [
+						"{{URL}}auth"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUyMTMwMzEwNX0.CS_mvDH8t5IT91P-U2vONj7CFCozj6QtgptAHcfG214"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}auth/check-token",
+					"host": [
+						"{{URL}}auth"
+					],
+					"path": [
+						"check-token"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"organisation_id\": \"743d5b63-8e6f-432e-a8fa-c5d8d2ee5fcb\",\n  \"attributes\": {\n    \"amount\": \"100.21\"\n  }\n}\n"
+				},
+				"url": {
+					"raw": "{{URL}}payments",
+					"host": [
+						"{{URL}}payments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}payments/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec43",
+					"host": [
+						"{{URL}}payments"
+					],
+					"path": [
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec43"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"organisation_id\": \"743d5b63-8e6f-432e-a8fa-c5d8d2ee5fcb\",\n  \"attributes\": {\n    \"amount\": \"100.22\"\n  }\n}\n"
+				},
+				"url": {
+					"raw": "{{URL}}payments/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec49",
+					"host": [
+						"{{URL}}payments"
+					],
+					"path": [
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec49"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}payments/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec4",
+					"host": [
+						"{{URL}}payments"
+					],
+					"path": [
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
